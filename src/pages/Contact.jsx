@@ -19,11 +19,11 @@ const Contato = () => {
       <div className="modal-dialog m-0" style={{maxWidth: 500, minWidth: 320}}>
         <div className="modal-content shadow">
           <div className="modal-header bg-primary text-white rounded-top">
-            <h5 className="modal-title w-100 text-center">Deixe sua mensagem</h5>
+            <h5 className="modal-title w-100 text-center">Leave your message</h5>
           </div>
           <form className="modal-body p-4 bg-white" style={{borderRadius: 0}}>
             <div className="mb-3 text-start">
-              <label htmlFor="nome" className="form-label">Nome</label>
+              <label htmlFor="nome" className="form-label">Name</label>
               <input
                 type="text"
                 className={`form-control${focus.nome ? ' border-primary shadow' : ''}`}
@@ -38,7 +38,7 @@ const Contato = () => {
               />
             </div>
             <div className="mb-3 text-start">
-              <label htmlFor="email" className="form-label">E-mail</label>
+              <label htmlFor="email" className="form-label">Email</label>
               <input
                 type="email"
                 className={`form-control${focus.email ? ' border-primary shadow' : ''}`}
@@ -53,7 +53,7 @@ const Contato = () => {
               />
             </div>
             <div className="mb-3 text-start">
-              <label htmlFor="telefone" className="form-label">Telefone</label>
+              <label htmlFor="telefone" className="form-label">Phone</label>
               <input
                 type="tel"
                 className={`form-control${focus.telefone ? ' border-primary shadow' : ''}`}
@@ -68,7 +68,7 @@ const Contato = () => {
               />
             </div>
             <div className="mb-3 text-start">
-              <label htmlFor="mensagem" className="form-label">Mensagem</label>
+              <label htmlFor="mensagem" className="form-label">Message</label>
               <textarea
                 className={`form-control${focus.mensagem ? ' border-primary shadow' : ''}`}
                 id="mensagem"
@@ -81,10 +81,10 @@ const Contato = () => {
                 rows={4}
                 required
               />
-              <div className="form-text text-end small">{chars}/1000 caracteres</div>
+              <div className="form-text text-end small">{chars}/1000 characters</div>
             </div>
             <div className="d-grid">
-              <button type="submit" className="btn btn-primary w-100 mt-2">Enviar</button>
+              <button type="submit" className="btn btn-primary w-100 mt-2">Send</button>
             </div>
           </form>
         </div>

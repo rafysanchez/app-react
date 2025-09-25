@@ -15,7 +15,7 @@ const Documentos = () => {
     if (!files.length) return;
     setUploading(true);
     setProgress(0);
-    // Simulação de upload com progresso
+    // Upload simulation with progress
     let percent = 0;
     const interval = setInterval(() => {
       percent += Math.floor(Math.random() * 15) + 5;
@@ -36,7 +36,7 @@ const Documentos = () => {
   return (
     <div className="d-flex align-items-center justify-content-center min-vh-100 bg-light">
       <form className="p-4 rounded shadow bg-white" style={{minWidth: 340, maxWidth: 400}} onSubmit={handleSubmit}>
-        <h2 className="mb-4 text-center">Upload de Documentos</h2>
+        <h2 className="mb-4 text-center">Document Upload</h2>
         <div className="mb-3">
           <input
             ref={inputRef}
@@ -47,7 +47,7 @@ const Documentos = () => {
             disabled={uploading}
             onChange={handleFileChange}
           />
-          <div className="form-text">Apenas arquivos PDF ou DOCX. Selecione múltiplos se desejar.</div>
+          <div className="form-text">Only PDF or DOCX files. Select multiple if you want.</div>
         </div>
         {files.length > 0 && (
           <ul className="list-group mb-3">
@@ -76,7 +76,7 @@ const Documentos = () => {
           </div>
         )}
         <button type="submit" className="btn btn-primary w-100" disabled={uploading || !files.length}>
-          {uploading ? 'Enviando...' : 'Enviar'}
+          {uploading ? 'Uploading...' : 'Send'}
         </button>
       </form>
     </div>

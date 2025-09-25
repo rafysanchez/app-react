@@ -2,8 +2,8 @@ import React from 'react';
 
 const SobreNos = () => (
   <div className="py-5 text-center">
-    <h2>Componente Sobre-nós</h2>
-    <p>Identificação: Sobre-nós</p>
+    <h2>About Us component</h2>
+    <p>Identifier: About Us</p>
   </div>
 );
 

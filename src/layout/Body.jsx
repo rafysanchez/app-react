@@ -1,18 +1,18 @@
 import React from 'react';
-import Usuarios from '../pages/Usuarios';
-import Produtos from '../pages/Produtos';
-import Documentos from '../pages/Documentos';
-import Contato from '../pages/Contato';
-import SobreNos from '../pages/SobreNos';
+import Users from '../pages/Users';
+import Products from '../pages/Products';
+import Documents from '../pages/Documents';
+import Contact from '../pages/Contact';
+import AboutUs from '../pages/AboutUs';
 
 const Body = ({ active }) => {
   return (
     <main className="container" style={{paddingTop: 80, paddingBottom: 60}}>
-      {active === 'usuarios' && <Usuarios />}
-      {active === 'produtos' && <Produtos />}
-      {active === 'documentos' && <Documentos />}
-      {active === 'contato' && <Contato />}
-      {active === 'sobre-nos' && <SobreNos />}
+      {active === 'users' && <Users />}
+      {active === 'products' && <Products />}
+      {active === 'documents' && <Documents />}
+      {active === 'contact' && <Contact />}
+      {active === 'about-us' && <AboutUs />}
     </main>
   );
 };

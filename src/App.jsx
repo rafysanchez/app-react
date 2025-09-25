@@ -7,7 +7,7 @@ import Footer from './layout/Footer';
 
 function App() {
   const [user, setUser] = useState(() => localStorage.getItem('user') || null);
-  const [active, setActive] = useState(() => localStorage.getItem('active') || 'usuarios');
+  const [active, setActive] = useState(() => localStorage.getItem('active') || 'users');
 
   useEffect(() => {
     if (user) {
@@ -23,12 +23,12 @@ function App() {
 
   const handleLogin = (email) => {
     setUser(email);
-    setActive('usuarios');
+    setActive('users');
   };
 
   const handleLogout = () => {
     setUser(null);
-    setActive('usuarios');
+    setActive('users');
   };
 
   const handleNavigate = (section) => {

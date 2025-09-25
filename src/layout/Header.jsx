@@ -1,7 +1,7 @@
 import React from 'react';
 
 const headerStyle = {
-  background: '#183153', // azul escuro suave
+  background: '#183153', // soft dark blue
   color: '#fff',
 };
 
@@ -16,15 +16,15 @@ const Header = ({ user, onLogout, onNavigate, active }) => (
         <span className="fw-bold">LOGO</span>
       </a>
       <nav className="navbar-nav flex-row gap-2">
-        <button className={`${linkBase} ${active==='usuarios'?linkActive:linkInactive}`} onClick={()=>onNavigate('usuarios')}>Usuários</button>
-        <button className={`${linkBase} ${active==='produtos'?linkActive:linkInactive}`} onClick={()=>onNavigate('produtos')}>Produtos</button>
-        <button className={`${linkBase} ${active==='documentos'?linkActive:linkInactive}`} onClick={()=>onNavigate('documentos')}>Documentos</button>
-        <button className={`${linkBase} ${active==='contato'?linkActive:linkInactive}`} onClick={()=>onNavigate('contato')}>Contato</button>
-        <button className={`${linkBase} ${active==='sobre-nos'?linkActive:linkInactive}`} onClick={()=>onNavigate('sobre-nos')}>Sobre-nós</button>
+        <button className={`${linkBase} ${active==='users'?linkActive:linkInactive}`} onClick={()=>onNavigate('users')}>Users</button>
+        <button className={`${linkBase} ${active==='products'?linkActive:linkInactive}`} onClick={()=>onNavigate('products')}>Products</button>
+        <button className={`${linkBase} ${active==='documents'?linkActive:linkInactive}`} onClick={()=>onNavigate('documents')}>Documents</button>
+        <button className={`${linkBase} ${active==='contact'?linkActive:linkInactive}`} onClick={()=>onNavigate('contact')}>Contact</button>
+        <button className={`${linkBase} ${active==='about-us'?linkActive:linkInactive}`} onClick={()=>onNavigate('about-us')}>About Us</button>
       </nav>
       <div className="d-flex align-items-center gap-2 ms-auto">
         <span className="text-light small">{user}</span>
-        <button className="btn btn-outline-warning btn-sm" onClick={onLogout}>Sair</button>
+        <button className="btn btn-outline-warning btn-sm" onClick={onLogout}>Sign out</button>
       </div>
     </div>
   </header>
