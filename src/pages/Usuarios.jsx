@@ -31,7 +31,7 @@ const Usuarios = () => {
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState({ col: null, dir: 'asc' });
 
-  const totalPages = Math.ceil(usuarios.length / pageSize);
+  // const totalPages = Math.ceil(usuarios.length / pageSize); // Removido: não utilizado
   const filtered = usuarios.filter(u =>
     u.nome.toLowerCase().includes(search.toLowerCase()) ||
     u.email.toLowerCase().includes(search.toLowerCase())
@@ -98,7 +98,7 @@ const Usuarios = () => {
     <div className="container py-5">
       <div className="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
         <h2>Usuários</h2>
-        <div className="d-flex align-items-center flex-wrap gap-2">
+        <div className="d-flex align-items-center flex-nowrap gap-2">
           <input
             type="text"
             className="form-control"
@@ -107,8 +107,7 @@ const Usuarios = () => {
             value={search}
             onChange={e => { setSearch(e.target.value); setPage(1); }}
           />
-          <div style={{width: 1, minWidth: 16}}></div>
-          <button className="btn btn-success ms-2" onClick={() => handleEdit(null)} title="Adicionar Usuário">
+          <button className="btn btn-success ms-2" style={{whiteSpace:'nowrap'}} onClick={() => handleEdit(null)} title="Adicionar Usuário">
             <i className="bi bi-person-plus"></i>
           </button>
         </div>

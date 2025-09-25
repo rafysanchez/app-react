@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import Login from './Login';
-import Header from './Header';
-import Body from './Body';
-import Footer from './Footer';
+import Login from './pages/Login';
+import Header from './layout/Header';
+import Body from './layout/Body';
+import Footer from './layout/Footer';
 
 function App() {
   const [user, setUser] = useState(() => localStorage.getItem('user') || null);

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const headerStyle = {
   background: '#183153', // azul escuro suave
   color: '#fff',

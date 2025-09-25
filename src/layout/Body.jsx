@@ -1,9 +1,9 @@
 import React from 'react';
-import Usuarios from './Usuarios';
-import Produtos from './Produtos';
-import Documentos from './Documentos';
-import Contato from './Contato';
-import SobreNos from './SobreNos';
+import Usuarios from '../pages/Usuarios';
+import Produtos from '../pages/Produtos';
+import Documentos from '../pages/Documentos';
+import Contato from '../pages/Contato';
+import SobreNos from '../pages/SobreNos';
 
 const Body = ({ active }) => {
   return (
