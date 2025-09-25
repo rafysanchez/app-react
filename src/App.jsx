@@ -1,0 +1,57 @@
+
+import React, { useState, useEffect } from 'react';
+import Login from './Login';
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
+
+function App() {
+  const [user, setUser] = useState(() => localStorage.getItem('user') || null);
+  const [active, setActive] = useState(() => localStorage.getItem('active') || 'usuarios');
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('user', user);
+    } else {
+      localStorage.removeItem('user');
+    }
+  }, [user]);
+
+  useEffect(() => {
+    localStorage.setItem('active', active);
+  }, [active]);
+
+  const handleLogin = (email) => {
+    setUser(email);
+    setActive('usuarios');
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    setActive('usuarios');
+  };
+
+  const handleNavigate = (section) => {
+    setActive(section);
+  };
+
+  return (
+    <div className="bg-light min-vh-100 d-flex flex-column" style={{minHeight: '100vh', width: '100vw', margin: 0, padding: 0}}>
+      <Header user={user} onLogout={handleLogout} onNavigate={handleNavigate} active={active} />
+      <main className="flex-grow-1 d-flex flex-column align-items-center justify-content-center w-100" style={{margin: 0, padding: 0}}>
+        {!user ? (
+          <div className="w-100" style={{maxWidth: 1200, minWidth: 320}}>
+            <Login onLogin={handleLogin} />
+          </div>
+        ) : (
+          <div className="w-100" style={{maxWidth: 1200, minWidth: 320}}>
+            <Body active={active} />
+          </div>
+        )}
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
