@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { t } from '../shared/i18n';
 
 const Documentos = () => {
   const [uploading, setUploading] = useState(false);
@@ -36,7 +37,7 @@ const Documentos = () => {
   return (
     <div className="d-flex align-items-center justify-content-center min-vh-100 bg-light">
       <form className="p-4 rounded shadow bg-white" style={{minWidth: 340, maxWidth: 400}} onSubmit={handleSubmit}>
-        <h2 className="mb-4 text-center">Document Upload</h2>
+        <h2 className="mb-4 text-center">{t('documents.title')}</h2>
         <div className="mb-3">
           <input
             ref={inputRef}
@@ -47,7 +48,7 @@ const Documentos = () => {
             disabled={uploading}
             onChange={handleFileChange}
           />
-          <div className="form-text">Only PDF or DOCX files. Select multiple if you want.</div>
+          <div className="form-text">{t('documents.helper')}</div>
         </div>
         {files.length > 0 && (
           <ul className="list-group mb-3">
@@ -76,7 +77,7 @@ const Documentos = () => {
           </div>
         )}
         <button type="submit" className="btn btn-primary w-100" disabled={uploading || !files.length}>
-          {uploading ? 'Uploading...' : 'Send'}
+          {uploading ? t('documents.uploading') : t('documents.send')}
         </button>
       </form>
     </div>

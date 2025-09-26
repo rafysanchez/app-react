@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { t } from '../shared/i18n';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const tipos = [
-  { value: 'adm', label: 'Administrator' },
-  { value: 'operador', label: 'Operator' },
+  { value: 'adm', label: t('users.roles.Administrator', 'Administrator') },
+  { value: 'operador', label: t('users.roles.Operator', 'Operator') },
 ];
 
 const usuariosDemo = [
@@ -97,17 +98,17 @@ const Usuarios = () => {
   return (
     <div className="container py-5">
       <div className="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
-        <h2>Users</h2>
+        <h2>{t('users.title')}</h2>
         <div className="d-flex align-items-center flex-nowrap gap-2">
           <input
             type="text"
             className="form-control"
             style={{minWidth:220, maxWidth:300}}
-            placeholder="Search by name or email..."
+            placeholder={t('users.searchPlaceholder')}
             value={search}
             onChange={e => { setSearch(e.target.value); setPage(1); }}
           />
-          <button className="btn btn-success ms-2" style={{whiteSpace:'nowrap'}} onClick={() => handleEdit(null)} title="Add User">
+          <button className="btn btn-success ms-2" style={{whiteSpace:'nowrap'}} onClick={() => handleEdit(null)} title={t('users.addUser')}>
             <i className="bi bi-person-plus"></i>
           </button>
         </div>
@@ -117,36 +118,36 @@ const Usuarios = () => {
           <thead className="table-dark">
             <tr>
               <th style={{width:'20%', cursor:'pointer'}} onClick={()=>handleSort('nome')}>
-                Name
+                {t('users.columns.name')}
                 {sort.col==='nome' ? (
-                  sort.dir==='asc' ? <i className="bi bi-arrow-down ms-1" title="Ascending"></i> : <i className="bi bi-arrow-up ms-1" title="Descending"></i>
-                ) : <i className="bi bi-arrow-down-up ms-1" title="Sort"></i>}
+                  sort.dir==='asc' ? <i className="bi bi-arrow-down ms-1" title={t('users.sort.ascending')}></i> : <i className="bi bi-arrow-up ms-1" title={t('users.sort.descending')}></i>
+                ) : <i className="bi bi-arrow-down-up ms-1" title={t('users.sort.sort')}></i>}
               </th>
               <th style={{width:'25%', cursor:'pointer'}} onClick={()=>handleSort('email')}>
-                Email
+                {t('users.columns.email')}
                 {sort.col==='email' ? (
-                  sort.dir==='asc' ? <i className="bi bi-arrow-down ms-1" title="Ascending"></i> : <i className="bi bi-arrow-up ms-1" title="Descending"></i>
-                ) : <i className="bi bi-arrow-down-up ms-1" title="Sort"></i>}
+                  sort.dir==='asc' ? <i className="bi bi-arrow-down ms-1" title={t('users.sort.ascending')}></i> : <i className="bi bi-arrow-up ms-1" title={t('users.sort.descending')}></i>
+                ) : <i className="bi bi-arrow-down-up ms-1" title={t('users.sort.sort')}></i>}
               </th>
               <th style={{width:'10%', cursor:'pointer'}} onClick={()=>handleSort('idade')}>
-                Age
+                {t('users.columns.age')}
                 {sort.col==='idade' ? (
-                  sort.dir==='asc' ? <i className="bi bi-arrow-down ms-1" title="Ascending"></i> : <i className="bi bi-arrow-up ms-1" title="Descending"></i>
-                ) : <i className="bi bi-arrow-down-up ms-1" title="Sort"></i>}
+                  sort.dir==='asc' ? <i className="bi bi-arrow-down ms-1" title={t('users.sort.ascending')}></i> : <i className="bi bi-arrow-up ms-1" title={t('users.sort.descending')}></i>
+                ) : <i className="bi bi-arrow-down-up ms-1" title={t('users.sort.sort')}></i>}
               </th>
               <th style={{width:'10%', cursor:'pointer'}} onClick={()=>handleSort('ativo')}>
-                Active
+                {t('users.columns.active')}
                 {sort.col==='ativo' ? (
-                  sort.dir==='asc' ? <i className="bi bi-arrow-down ms-1" title="Ascending"></i> : <i className="bi bi-arrow-up ms-1" title="Descending"></i>
-                ) : <i className="bi bi-arrow-down-up ms-1" title="Sort"></i>}
+                  sort.dir==='asc' ? <i className="bi bi-arrow-down ms-1" title={t('users.sort.ascending')}></i> : <i className="bi bi-arrow-up ms-1" title={t('users.sort.descending')}></i>
+                ) : <i className="bi bi-arrow-down-up ms-1" title={t('users.sort.sort')}></i>}
               </th>
               <th style={{width:'15%', cursor:'pointer'}} onClick={()=>handleSort('tipo')}>
-                Type
+                {t('users.columns.type')}
                 {sort.col==='tipo' ? (
-                  sort.dir==='asc' ? <i className="bi bi-arrow-down ms-1" title="Ascending"></i> : <i className="bi bi-arrow-up ms-1" title="Descending"></i>
-                ) : <i className="bi bi-arrow-down-up ms-1" title="Sort"></i>}
+                  sort.dir==='asc' ? <i className="bi bi-arrow-down ms-1" title={t('users.sort.ascending')}></i> : <i className="bi bi-arrow-up ms-1" title={t('users.sort.descending')}></i>
+                ) : <i className="bi bi-arrow-down-up ms-1" title={t('users.sort.sort')}></i>}
               </th>
-              <th style={{width:'20%'}}>Actions</th>
+              <th style={{width:'20%'}}>{t('users.columns.actions', 'Actions')}</th>
             </tr>
           </thead>
           <tbody>
@@ -155,13 +156,13 @@ const Usuarios = () => {
                 <td>{user.nome}</td>
                 <td>{user.email}</td>
                 <td>{user.idade}</td>
-                <td>{user.ativo ? 'Yes' : 'No'}</td>
+                <td>{user.ativo ? t('users.yes') : t('users.no')}</td>
                 <td>{tipos.find(t=>t.value===user.tipo)?.label}</td>
                 <td>
-                  <button className="btn btn-link text-primary fs-5 me-2 p-0" onClick={() => handleEdit(user)} title="Edit">
+                  <button className="btn btn-link text-primary fs-5 me-2 p-0" onClick={() => handleEdit(user)} title={t('users.actions.edit')}>
                     <i className="bi bi-pencil-square"></i>
                   </button>
-                  <button className="btn btn-link text-danger fs-5 p-0" onClick={() => handleDelete(user)} title="Delete">
+                  <button className="btn btn-link text-danger fs-5 p-0" onClick={() => handleDelete(user)} title={t('users.actions.delete')}>
                     <i className="bi bi-trash"></i>
                   </button>
                 </td>
@@ -173,11 +174,11 @@ const Usuarios = () => {
       {/* Paginator */}
       <nav className="d-flex justify-content-center my-3">
         <ul className="pagination">
-          <li className={`page-item${page===1?' disabled':''}`}><button className="page-link" onClick={()=>setPage(p=>Math.max(1,p-1))}>Previous</button></li>
+          <li className={`page-item${page===1?' disabled':''}`}><button className="page-link" onClick={()=>setPage(p=>Math.max(1,p-1))}>{t('users.paginator.previous')}</button></li>
           {[...Array(filteredTotalPages)].map((_,i)=>(
             <li key={i} className={`page-item${page===i+1?' active':''}`}><button className="page-link" onClick={()=>setPage(i+1)}>{i+1}</button></li>
           ))}
-          <li className={`page-item${page===filteredTotalPages?' disabled':''}`}><button className="page-link" onClick={()=>setPage(p=>Math.min(filteredTotalPages,p+1))}>Next</button></li>
+          <li className={`page-item${page===filteredTotalPages?' disabled':''}`}><button className="page-link" onClick={()=>setPage(p=>Math.min(filteredTotalPages,p+1))}>{t('users.paginator.next')}</button></li>
         </ul>
       </nav>
 
@@ -187,36 +188,36 @@ const Usuarios = () => {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header bg-primary text-white">
-                <h5 className="modal-title">{editUser.id ? 'Edit User' : 'Add User'}</h5>
+                <h5 className="modal-title">{editUser.id ? t('users.modal.editTitle') : t('users.modal.addTitle')}</h5>
                 <button type="button" className="btn-close" onClick={()=>setShowModal(false)}></button>
               </div>
               <div className="modal-body">
                 <div className="mb-3 text-start">
-                  <label className="form-label" htmlFor="modal-nome">Name</label>
+                  <label className="form-label" htmlFor="modal-nome">{t('users.modal.name')}</label>
                   <input id="modal-nome" type="text" className="form-control" name="nome" value={editUser.nome} onChange={handleChange} maxLength={100} required />
                 </div>
                 <div className="mb-3 text-start">
-                  <label className="form-label" htmlFor="modal-email">Email</label>
+                  <label className="form-label" htmlFor="modal-email">{t('users.modal.email')}</label>
                   <input id="modal-email" type="email" className="form-control" name="email" value={editUser.email} onChange={handleChange} maxLength={100} required />
                 </div>
                 <div className="mb-3 text-start">
-                  <label className="form-label" htmlFor="modal-idade">Age</label>
+                  <label className="form-label" htmlFor="modal-idade">{t('users.modal.age')}</label>
                   <input id="modal-idade" type="number" className="form-control" name="idade" value={editUser.idade} onChange={handleChange} min={18} max={120} required />
                 </div>
                 <div className="mb-3 text-start">
-                  <label className="form-label" htmlFor="modal-tipo">Type</label>
+                  <label className="form-label" htmlFor="modal-tipo">{t('users.modal.type')}</label>
                   <select id="modal-tipo" className="form-select" name="tipo" value={editUser.tipo} onChange={handleChange} required>
                     {tipos.map(t=>(<option key={t.value} value={t.value}>{t.label}</option>))}
                   </select>
                 </div>
                 <div className="form-check mb-2 text-start">
                   <input className="form-check-input" type="checkbox" name="ativo" id="ativo" checked={editUser.ativo} onChange={handleChange} />
-                  <label className="form-check-label" htmlFor="ativo">Active</label>
+                  <label className="form-check-label" htmlFor="ativo">{t('users.modal.active')}</label>
                 </div>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={()=>setShowModal(false)}>Cancel</button>
-                <button type="button" className="btn btn-primary" onClick={handleSave}>Save</button>
+                <button type="button" className="btn btn-secondary" onClick={()=>setShowModal(false)}>{t('users.modal.cancel')}</button>
+                <button type="button" className="btn btn-primary" onClick={handleSave}>{t('users.modal.save')}</button>
               </div>
             </div>
           </div>
@@ -229,16 +230,16 @@ const Usuarios = () => {
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content border-danger">
               <div className="modal-header bg-danger text-white">
-                <h5 className="modal-title">Confirm Deletion</h5>
+                <h5 className="modal-title">{t('users.delete.title')}</h5>
                 <button type="button" className="btn-close" onClick={()=>setShowDelete(false)}></button>
               </div>
               <div className="modal-body text-center">
-                <p className="fs-5">Are you sure you want to delete <b>{deleteUser?.nome}</b>?</p>
-                <p className="text-danger">This action cannot be undone!</p>
+                <p className="fs-5">{t('users.delete.question')} <b>{deleteUser?.nome}</b>?</p>
+                <p className="text-danger">{t('users.delete.cannotUndo')}</p>
               </div>
               <div className="modal-footer justify-content-center">
-                <button type="button" className="btn btn-secondary" onClick={()=>setShowDelete(false)}>Cancel</button>
-                <button type="button" className="btn btn-danger" onClick={handleRemove}>Delete</button>
+                <button type="button" className="btn btn-secondary" onClick={()=>setShowDelete(false)}>{t('users.delete.cancel')}</button>
+                <button type="button" className="btn btn-danger" onClick={handleRemove}>{t('users.delete.confirm')}</button>
               </div>
             </div>
           </div>

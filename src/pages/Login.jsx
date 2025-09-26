@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { t } from '../shared/i18n';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -8,12 +9,12 @@ const Login = ({ onLogin }) => {
   const validate = () => {
     const newErrors = {};
     if (!email) {
-      newErrors.email = 'Email is required.';
+      newErrors.email = t('login.errors.emailRequired');
     } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-      newErrors.email = 'Invalid email format.';
+      newErrors.email = t('login.errors.emailInvalid');
     }
     if (!password) {
-      newErrors.password = 'Password is required.';
+      newErrors.password = t('login.errors.passwordRequired');
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -29,9 +30,9 @@ const Login = ({ onLogin }) => {
   return (
     <div className="d-flex align-items-center justify-content-center min-vh-100 bg-light">
       <form className="p-4 rounded shadow bg-white" style={{minWidth: 320}} onSubmit={handleSubmit} noValidate>
-        <h2 className="mb-4 text-center">Login</h2>
+        <h2 className="mb-4 text-center">{t('login.title')}</h2>
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">Email</label>
+          <label htmlFor="email" className="form-label">{t('login.email')}</label>
           <input
             type="email"
             className={`form-control${errors.email ? ' is-invalid' : ''}`}
@@ -43,7 +44,7 @@ const Login = ({ onLogin }) => {
           {errors.email && <div className="invalid-feedback">{errors.email}</div>}
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">Password</label>
+          <label htmlFor="password" className="form-label">{t('login.password')}</label>
           <input
             type="password"
             className={`form-control${errors.password ? ' is-invalid' : ''}`}
@@ -54,7 +55,7 @@ const Login = ({ onLogin }) => {
           />
           {errors.password && <div className="invalid-feedback">{errors.password}</div>}
         </div>
-        <button type="submit" className="btn btn-primary w-100">Sign in</button>
+        <button type="submit" className="btn btn-primary w-100">{t('login.signIn')}</button>
       </form>
     </div>
   );

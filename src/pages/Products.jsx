@@ -1,6 +1,7 @@
 
 import React from 'react';
 import PieChart from '../components/PieChart';
+import { t } from '../shared/i18n';
 
 const produtos = [
   { nome: 'Notebook', percentual: 30 },
@@ -22,12 +23,12 @@ const Produtos = () => (
   <div className="d-flex align-items-center justify-content-center min-vh-100 bg-light">
     <div className="bg-white rounded shadow p-4 d-flex flex-wrap align-items-center justify-content-center gap-4" style={{minWidth: 600, maxWidth: 900}}>
       <div>
-        <h2 className="mb-4 text-center">Stationery Products</h2>
+        <h2 className="mb-4 text-center">{t('products.title')}</h2>
         <table className="table table-bordered align-middle text-center mb-0" style={{minWidth: 320}}>
           <thead className="table-dark">
             <tr>
-              <th>Product</th>
-              <th>Sales Percentage</th>
+              <th>{t('products.table.product')}</th>
+              <th>{t('products.table.salesPercentage')}</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +42,7 @@ const Produtos = () => (
         </table>
       </div>
       <div className="d-flex flex-column align-items-center justify-content-center">
-        <h5 className="mb-3">Sales Distribution</h5>
+        <h5 className="mb-3">{t('products.chartTitle')}</h5>
         <PieChart
           labels={produtos.map(p => p.nome)}
           data={produtos.map(p => p.percentual)}

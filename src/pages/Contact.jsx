@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { t } from '../shared/i18n';
 
 const Contato = () => {
   const [form, setForm] = useState({ nome: '', email: '', telefone: '', mensagem: '' });
@@ -19,11 +20,11 @@ const Contato = () => {
       <div className="modal-dialog m-0" style={{maxWidth: 500, minWidth: 320}}>
         <div className="modal-content shadow">
           <div className="modal-header bg-primary text-white rounded-top">
-            <h5 className="modal-title w-100 text-center">Leave your message</h5>
+            <h5 className="modal-title w-100 text-center">{t('contact.title')}</h5>
           </div>
           <form className="modal-body p-4 bg-white" style={{borderRadius: 0}}>
             <div className="mb-3 text-start">
-              <label htmlFor="nome" className="form-label">Name</label>
+              <label htmlFor="nome" className="form-label">{t('contact.name')}</label>
               <input
                 type="text"
                 className={`form-control${focus.nome ? ' border-primary shadow' : ''}`}
@@ -38,7 +39,7 @@ const Contato = () => {
               />
             </div>
             <div className="mb-3 text-start">
-              <label htmlFor="email" className="form-label">Email</label>
+              <label htmlFor="email" className="form-label">{t('contact.email')}</label>
               <input
                 type="email"
                 className={`form-control${focus.email ? ' border-primary shadow' : ''}`}
@@ -53,7 +54,7 @@ const Contato = () => {
               />
             </div>
             <div className="mb-3 text-start">
-              <label htmlFor="telefone" className="form-label">Phone</label>
+              <label htmlFor="telefone" className="form-label">{t('contact.phone')}</label>
               <input
                 type="tel"
                 className={`form-control${focus.telefone ? ' border-primary shadow' : ''}`}
@@ -68,7 +69,7 @@ const Contato = () => {
               />
             </div>
             <div className="mb-3 text-start">
-              <label htmlFor="mensagem" className="form-label">Message</label>
+              <label htmlFor="mensagem" className="form-label">{t('contact.message')}</label>
               <textarea
                 className={`form-control${focus.mensagem ? ' border-primary shadow' : ''}`}
                 id="mensagem"
@@ -81,10 +82,10 @@ const Contato = () => {
                 rows={4}
                 required
               />
-              <div className="form-text text-end small">{chars}/1000 characters</div>
+              <div className="form-text text-end small">{chars}/1000 {t('contact.characters')}</div>
             </div>
             <div className="d-grid">
-              <button type="submit" className="btn btn-primary w-100 mt-2">Send</button>
+              <button type="submit" className="btn btn-primary w-100 mt-2">{t('contact.send')}</button>
             </div>
           </form>
         </div>
