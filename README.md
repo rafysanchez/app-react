@@ -1,16 +1,63 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Technical Report: React Stationery App
 
-Currently, two official plugins are available:
+## 1. Application Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This application is a demonstration system for stationery management, focused on front-end best practices, usability, and modular architecture. It simulates an admin dashboard with authentication, user CRUD, document upload, contact form, product visualization, and sales dashboard.
 
-## React Compiler
+## 2. Technologies Used
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** (with hooks and functional components)
+- **Vite** (build and development environment)
+- **Bootstrap 5** (styling and responsiveness)
+- **Bootstrap Icons** (visual icons)
+- **Chart.js** (pie charts)
+- **JavaScript (ES6+)**
 
-## Expanding the ESLint configuration
+## 3. Architecture and Organization
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **src/pages/**: Main pages (Users, Products, Documents, Contact, AboutUs, Login)
+- **src/layout/**: Structural components (Header, Footer, Body)
+- **src/components/**: Reusable components (e.g., PieChart)
+- **src/features/**: (Reserved for future features)
+- **src/shared/**: (Reserved for utilities and shared resources)
+- **assets/**: Images and static resources
+
+The app follows the separation of concerns pattern, making maintenance, testing, and scalability easier.
+
+## 4. Patterns and Best Practices
+
+- **Componentization**: Each feature is an isolated, reusable component.
+- **Form validation**: All forms have validation and visual feedback.
+- **Login persistence**: Uses localStorage to keep the user session.
+- **Responsiveness**: Layout adapts to different screen sizes.
+- **Clean Code**: Organized folders, clear names, commented code, and no duplication.
+- **Hooks usage**: State and effects managed with useState/useEffect.
+
+## 5. AI Improvement Possibilities
+
+- **Support Chatbot**: Integrate a virtual assistant for user questions and support.
+- **Smart Recommendations**: Suggest products based on user purchase profile.
+- **Predictive Analysis**: Forecast sales and stock trends using machine learning models.
+- **Document Recognition**: Automate reading and classification of uploaded documents.
+- **Automatic Report Generation**: Use AI to create dynamic reports and business insights.
+
+## 6. How to Run
+
+1. Install dependencies:
+	```sh
+	npm install
+	```
+2. Run the app:
+	```sh
+	npm run dev
+	```
+3. Access at `http://localhost:5173` (or configured port)
+
+---
+
+This project is an example of modern architecture for React applications, ready to be expanded with AI and automation features.
+
+
+Link to the app
+
